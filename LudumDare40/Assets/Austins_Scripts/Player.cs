@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D collide)
 	{
-		Debug.Log("WE ARE HIT");
 		if (collide.collider.gameObject.tag == "PurpleGem")
 		{
 			GemCount=GemCount+1;

@@ -4,13 +4,11 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Asteroid : MonoBehaviour 
 {
-
 	public float speed;
 	public float health; 
 	public int numOfGems;
 
 	public GameObject[]GemArray = new GameObject[4]; 
-
 
 	Rigidbody2D mybody;
 
@@ -25,10 +23,8 @@ public class Asteroid : MonoBehaviour
 
 	void Update()
 	{
-		
-		if (health == 0)
+		if (health <= 0)
 		{
-			
 				for (int j=0; j< numOfGems; j++)
 				{
 					int randomValue = Random.Range (0, 100);
@@ -48,14 +44,8 @@ public class Asteroid : MonoBehaviour
 					{
 					Instantiate(GemArray[3], transform.position, transform.rotation);
 					}
-
 				}
 			Destroy (this.gameObject);
 		}
-	
-	
 	}
-
-
-
 }

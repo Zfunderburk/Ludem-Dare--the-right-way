@@ -25,9 +25,10 @@ GameObject:
   - component: {fileID: 114484896095428758}
   - component: {fileID: 50990742626778812}
   - component: {fileID: 61019129147293768}
+  - component: {fileID: 114003810727616450}
   m_Layer: 0
   m_Name: 'SR Gem '
-  m_TagString: Untagged
+  m_TagString: FuschiaGem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986997974983234}
   m_LocalRotation: {x: -0.26838723, y: -0, z: -0, w: 0.96331114}
-  m_LocalPosition: {x: 15.42, y: 17.98, z: 0.03}
+  m_LocalPosition: {x: 10.81, y: 17.59, z: -2.64}
   m_LocalScale: {x: 50.26208, y: 50.262077, z: 23.900326}
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0000130748385}
+  m_Offset: {x: -0.0000000144355, y: -0.000013074838}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -129,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0092260875, y: 0.018032262}
+  m_Size: {x: 0.013165853, y: 0.018032262}
   m_EdgeRadius: 0
 --- !u!95 &95088554711565490
 Animator:
@@ -148,6 +149,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114003810727616450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986997974983234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f105d0ad11a04ff68f074cc04fd771b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 2
 --- !u!114 &114484896095428758
 MonoBehaviour:
   m_ObjectHideFlags: 1

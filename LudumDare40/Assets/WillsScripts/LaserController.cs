@@ -22,8 +22,7 @@ public class LaserController : MonoBehaviour {
 	}
 
 	void HandleLaser () {
-
-		if (Input.GetAxis ("RightV") <= 0.19f && Input.GetAxis ("RightH") <= 0.19f) {
+		if (Input.GetAxis ("RightV") == 0 && Input.GetAxis ("RightH") == 0) {
 			myLine.enabled = false;
 		} else {
 			RaycastHit2D hit = Physics2D.Raycast (transform.TransformPoint(Vector3.zero), transform.TransformDirection(Vector3.right));
@@ -32,8 +31,13 @@ public class LaserController : MonoBehaviour {
 			if (hit.collider != null) {
 				myLine.SetPosition (1, new Vector2(hit.distance, 0));
 				hitParticle.transform.position = hit.point;
+				if (hit.collider.gameObject.tag == "Asteroid") {
+					hit.collider.gameObject.GetComponent<Asteroid> ().health -= laserDamage;
+				} else if (hit.collider.gameObject.tag == "Enemy") {
+					hit.collider.gameObject.GetComponent<Enemy> ().health -= laserDamage;
+				}
 			} else {
-				myLine.SetPosition(1, new Vector2 (500, 0));
+				myLine.SetPosition(1, new Vector2 (40, 0));
 				hitParticle.transform.position = new Vector3 (100, 100, 0);
 			}
 		}

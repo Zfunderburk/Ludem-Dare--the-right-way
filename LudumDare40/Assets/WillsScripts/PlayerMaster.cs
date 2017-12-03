@@ -29,11 +29,7 @@ public class PlayerMaster : MonoBehaviour {
 	void HandleMovement () {
 		float horizontal = Input.GetAxis ("Horizontal");
 		float vertical = Input.GetAxis ("Vertical");
-		float rotHorizontal = Input.GetAxis ("RightH");
-		float rotVertical = Input.GetAxis ("RightV");
 		Vector2 movement = new Vector2 (horizontal, vertical);
-		Vector2 rotationality = new Vector3 (rotHorizontal, rotVertical);
-		//NEED ROTATION SHIT FUCKERS
 		rb2d.AddForce (movement * moveSpeed);
 		rb2d.velocity = Vector2.ClampMagnitude (rb2d.velocity, maxSpeed);
 	}
