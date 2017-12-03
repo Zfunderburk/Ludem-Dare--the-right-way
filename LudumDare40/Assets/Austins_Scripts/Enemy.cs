@@ -11,18 +11,17 @@ public class Enemy : MonoBehaviour
 
 	public int health;
 
+	bool canMove = true;
 
+	float timer;
 
 	void Update()
 	{
-
-		transform.LookAt (target);
-		range = Vector2.Distance (transform.position, target.position);
-		if (range > minDistance)
+		if (canMove ==true)
 		{
-			
-			transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
+			Move ();
 		}
+
 	}
 
 	void OnCollisionEnter2D(Collision2D collide)
@@ -30,8 +29,28 @@ public class Enemy : MonoBehaviour
 		if (collide.collider.gameObject.tag == "Player")
 		{
 			Debug.Log ("Hit Player");
-			transform.position = new Vector2 (transform.position.x, transform.position.y);
+			canMove = false;
+			StartCoroutine(TimePass ());
+			collide.gameObject.GetComponent<Player> ().GemCount =collide.gameObject.GetComponent<Player>().GemCount -2;
+
 		}
 	}
 
+	void Move()
+	{
+		transform.LookAt (target);
+		range = Vector2.Distance (transform.position, target.position);
+		if (range > minDistance)
+		{
+
+			transform.position = Vector2.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
+		}
+	}
+
+	IEnumerator TimePass()
+	{
+		yield return new WaitForSeconds(2f);
+		canMove = true;
+
+	}
 }

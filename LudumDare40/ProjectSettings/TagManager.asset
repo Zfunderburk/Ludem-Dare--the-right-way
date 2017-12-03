@@ -8,6 +8,7 @@ TagManager:
   - PurpleGem
   - PinkGem
   - FuschiaGem
+  - Enemy
   layers:
   - Default
   - TransparentFX
